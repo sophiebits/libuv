@@ -166,6 +166,16 @@ out:
 }
 
 
+int uv_tcp_getsocket(uv_tcp_t* handle, int* fd) {
+  if (handle->fd < 0) {
+    *fd = -1;
+  } else {
+    *fd = handle->fd;
+  }
+  return 0;
+}
+
+
 int uv_tcp_listen(uv_tcp_t* tcp, int backlog, uv_connection_cb cb) {
   int r;
 

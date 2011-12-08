@@ -505,6 +505,7 @@ UV_EXTERN int uv_tcp_getsockname(uv_tcp_t* handle, struct sockaddr* name,
     int* namelen);
 UV_EXTERN int uv_tcp_getpeername(uv_tcp_t* handle, struct sockaddr* name,
     int* namelen);
+UV_EXTERN int uv_tcp_getsocket(uv_tcp_t* handle, int* fd);
 
 /*
  * uv_tcp_connect, uv_tcp_connect6

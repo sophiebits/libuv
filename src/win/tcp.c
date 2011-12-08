@@ -760,6 +760,16 @@ int uv_tcp_getpeername(uv_tcp_t* handle, struct sockaddr* name,
 }
 
 
+int uv_tcp_getsocket(uv_tcp_t* handle, int* fd) {
+  if (!(handle->flags & UV_HANDLE_BOUND)) {
+    *fd = -1;
+  } else {
+    *fd = (int)handle->socket;
+  }
+  return 0;
+}
+
+
 int uv_tcp_write(uv_loop_t* loop, uv_write_t* req, uv_tcp_t* handle,
     uv_buf_t bufs[], int bufcnt, uv_write_cb cb) {
   int result;
